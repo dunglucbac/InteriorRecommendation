@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero-body">
+  {% if not f %}
+  <form action="/still#wish"   enctype="multipart/form-data" method="POST">
+
+        <div class="file has-name is-centered">
+            <label class="file-label">
+              <input class="file-input" type="file" id="image" name = "uploadfile">
+              <span class="file-cta">
+                <span class="file-label">
+                  Show me anything.
+                </span>
+              </span>
+              <span class="file-name" id="file-name">
+              </span>
+              <button type="submit" class="button is-info is-light" style="margin-left: 30px !important;"> Recommendation </button>
+
+            </label>
+
+
+        </div>
+        
+  </form>
+  
+  {% endif %}
+
+  {% if f %}
+
+  <img src="/static/{{f}}"/ class="input-image">
+
+    {% if c %}
+    <div class="container" id="wish" style="margin-bottom: 50px;">
+        <div class="tile is-ancester">
+          {% for column in [0,1,2] %}
+          <div class="tile is-parent is-4 is-vertical">
+            <div class="tile is-child"> 
+              {% for object in c[column::3] %}
+              <div class='recommendation'>
+        
+              <figure class="image">
+                <img class="cropped-image" src="/static/{{object.path}}" onerror="this.src='static/images/placeholder.jpg'">
+              </figure>
+  
+            
+                <p class="category">{{ object.category }}</p>
+              
+              
+                <form action="{{url_for('home.recommend', category=object.category, path=object.path )}}" method="POST">
+                  <button class="btn btn-primary btn-xl" type="submit">See Recommendations</button>
+                </form>
+             
+              </div>
+              <br>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% else %}
+        <h2>Can't detect. Try again.</h2>
+
+      {% endif %}
+
+      
+  {% endif %}
+
+</div>
+
+
+{% endblock %}
+
+<!-- <button class="btn btn-primary btn-xl" type="submit">See Recommendations</button> -->

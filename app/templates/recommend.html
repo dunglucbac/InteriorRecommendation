@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- {% if f %}
+
+<img src="/static/{{f}}" alt="nate" class="input-cropped-image"/>
+{% endif %}
+
+<div class="container">
+{% for path in c %}
+    <img src="/static/{{path}}" alt="nate" class="cropped-image"/>
+{% endfor %}
+</div>
+
+<div class="container rec-text">
+  <p>Wouldn't you look great in these? ♡</p>
+</div> -->
+
+
+<section class="content-section" id="portfolio">
+        
+  <div class="container">
+    <div class="content-section-heading text-center">
+      <h3 class="text-secondary mb-0">Interior</h3>
+      <h2 class="mb-5">Recommendations</h2>
+    </div>
+    
+    <div class="row no-gutters">
+      {% for column in [0,1,2,3] %}
+      <div class="col-lg-6">
+        {% for product in products[column::5] %}
+        <a class="portfolio-item" href="{{product.url}}">
+          <span class="caption">
+            <span class="caption-content">
+              <h2>{{ product.name }}</h2>
+              <p class="mb-0">{{ product.price }}</p><br>
+
+            </span>
+          </span>
+          <img class="img-fluid" src="{{ product.img }}" alt="">
+        </a>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+     
+
+{% endblock %}
