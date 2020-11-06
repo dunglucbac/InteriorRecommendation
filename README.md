@@ -57,6 +57,9 @@ python -m main.py
 
 Check results
 
+![image](https://2.pik.vn/2020ef7de977-9025-47c4-bfb9-f26eecb2c48d.jpg)
+
+
 
 ### Link references
 https://www.miai.vn/2019/08/09/yolo-series-2-cach-train-yolo-de-detect-cac-object-dac-thu/
