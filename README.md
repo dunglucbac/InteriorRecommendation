@@ -1,5 +1,3 @@
-# InteriorRecommendation
-
 Introduction
 
 Have you ever been in a situation where you came to your friend’s house then impressed by his / her apartment decoration. The idea is based on my experience of that and I want a smart machine learning system that can give me similar products on the internet. Moreover, it will give you a better idea by recommending home designs from others to give you a clearer view of what you want in ‘your house’.
